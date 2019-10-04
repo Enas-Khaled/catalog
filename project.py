@@ -37,6 +37,7 @@ def showLogin():
 
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
+    print("12")
     # Validate state token
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
@@ -44,6 +45,7 @@ def gconnect():
         return response
     # Obtain authorization code
     code = request.data
+    print("12")
 
     try:
         # Upgrade the authorization code into a credentials object
