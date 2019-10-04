@@ -35,9 +35,9 @@ def showLogin():
     # return "The current session state is %s" % login_session['state']
     return render_template('login.html', STATE=state)
 
+
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
-    print("12")
     # Validate state token
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
@@ -45,8 +45,6 @@ def gconnect():
         return response
     # Obtain authorization code
     code = request.data
-    print("12")
-
     try:
         # Upgrade the authorization code into a credentials object
         oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
@@ -260,7 +258,7 @@ def newItem(category_id):
                            'description'], price=request.form[
                                'price'], section=request.form[
                                    'section'], category_id=category_id)
-        session.add(Item)
+        session.add(newItem)
         session.commit()
         flash('New  %s Item Successfully Created' % (Item.name))
         return redirect(url_for('showItem', category_id=category_id))
