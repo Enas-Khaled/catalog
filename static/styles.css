@@ -56,12 +56,12 @@ h3 {
 .btn {
 	padding: 20px;
 	margin: 0;
-	border-color: #9FB80A;
+	border-color: #42C3C9;
 	border-width: 2px;
-	color: #9FB80A;;
+	color: #42C3C9;;
 }
 .btn:hover {
-	border-color: #9FB80A;
+	border-color: #42C3C9;
 }
 .btn.delete {
 	border-color: #aaaaaa;
@@ -150,7 +150,7 @@ u }
 	margin-top: -20px;
 }
 .flash {
-	background-color: #98FB98;
+	background-color: #42C3C9;
 	width:100%;
 	text-decoration: none;
 
