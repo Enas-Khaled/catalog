@@ -5,13 +5,16 @@
 		</a>
 	</div>
 	<div class="col-md-6 text-right">
-			{% if (result) %}
-			<a href="{{url_for('showLogin')}}">
-					<span class="glyphicon glyphicon-home" aria-hidden="true">Login</span>
+			{% if 'username' not in session %}
+			    <a href="{{url_for('showLogin')}}">
+				<button type="button" class="btn btn-default navbar-btn">
+					Log In
+					</button>
 				</a>
 			
 			{% else %}
-			    <span class="glyphicon glyphicon-home" aria-hidden="true"> {{output}}</span>
+			  
+			    <span class="glyphicon" aria-hidden="true"></span>Welcome
 			
 			{% endif %}
 					
