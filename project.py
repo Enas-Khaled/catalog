@@ -295,7 +295,7 @@ def newItem(category_id):
         newItem = Item(name=request.form['name'],
                        description=request.form['description'],
                        price=request.form['price'],
-                       section=request.form['section'], 
+                       section=request.form['section'],
                        category_id=category_id,
                        user_id=login_session['user_id'])
         session.add(newItem)
