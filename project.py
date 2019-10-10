@@ -226,7 +226,8 @@ def newCategory():
     if 'username' not in login_session:
         return redirect('/login')
     if request.method == 'POST':
-        newCategory = Category(name=request.form['name'])
+        newCategory = Category(name=request.form['name'],
+                               user_id=login_session['user_id'])
         session.add(newCategory)
         flash('New Category %s Successfully Created' % newCategory.name)
         session.commit()
@@ -291,10 +292,12 @@ def newItem(category_id):
         return redirect('/login')
     category = session.query(Category).filter_by(id=category_id).one()
     if request.method == 'POST':
-        newItem = Item(name=request.form['name'], description=request.form[
-                           'description'], price=request.form[
-                               'price'], section=request.form[
-                                   'section'], category_id=category_id)
+        newItem = Item(name=request.form['name'],
+                       description=request.form['description'],
+                       price=request.form['price'],
+                       section=request.form['section'], 
+                       category_id=category_id,
+                       user_id=login_session['user_id'])
         session.add(newItem)
         session.commit()
         flash('New  %s Item Successfully Created' % (Item.name))
